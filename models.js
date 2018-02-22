@@ -33,7 +33,6 @@ const QuestionSchema = new Schema({
 	createdAt: {type: Date, default: Date.now},
 	answers: [AnswerSchema]
 });
-
 QuestionSchema.pre('save', function(next) {
 	this.answers.sort(sortAnswers);
 	next();

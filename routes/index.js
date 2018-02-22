@@ -58,7 +58,7 @@ router.post('/:questionID', (req, res, next) => {
 router.delete('/:questionID', (req, res, next) => {
 	req.question.remove((err, question) => {
 		if(err) return next(err);
-		res.json(question);
+		res.json({"deleted": question._id});
 	});
 });
 
