@@ -45,6 +45,12 @@ router.post('/', (req, res, next) => {
 		res.json(question);
 	});
 });
+router.delete('/', (req, res, next) => {
+	Question.remove({}, (err, result) => {
+		if(err) return next(err);
+		res.json({"deleted": "all"});
+	});
+});
 
 router.get('/:questionID', (req, res, next) => {
 	res.json(req.question);
