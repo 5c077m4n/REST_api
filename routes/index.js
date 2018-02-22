@@ -55,14 +55,12 @@ router.post('/:questionID', (req, res, next) => {
 		body: req.body
 	});
 });
-// router.delete('/:questionID', (req, res, next) => {
-// 	req.question.remove((err) => {
-// 		req.question.save((err, question) => {
-// 			if(err) return next(err);
-// 			res.json(question);
-// 		});
-// 	});
-// });
+router.delete('/:questionID', (req, res, next) => {
+	req.question.remove((err, question) => {
+		if(err) return next(err);
+		res.json(question);
+	});
+});
 
 router.get('/:questionID/answers', (req, res, next) => {
 	res.json({response: `This is a GET request for all answers in question #${req.params.questionID}`});
